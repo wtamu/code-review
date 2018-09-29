@@ -14,22 +14,22 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
         db = get_db()
         error = None
 
-        if not username:
-            error = 'Username is required.'
+        if not email:
+            error = 'Email is required.'
         elif not password:
             error = 'Password is required.'
-        elif db.execute('SELECT id FROM user WHERE username = ?', (username,)).fetchone() is not None:
-            error = f'User {username} is already registered.'
+        elif db.execute('SELECT id FROM user WHERE email = ?', (email,)).fetchone() is not None:
+            error = f'User with email {email} is already registered.'
 
         if error is None:
             db.execute(
-                'INSERT INTO user (username, password) VALUES (?, ?)',
-                (username, generate_password_hash(password))
+                'INSERT INTO user (email, password) VALUES (?, ?)',
+                (email, generate_password_hash(password))
             )
             db.commit()
             return redirect(url_for('auth.login'))
@@ -42,14 +42,14 @@ def register():
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
         db = get_db()
         error = None
-        user = db.execute('SELECT * FROM user WHERE username = ?', (username,)).fetchone()
+        user = db.execute('SELECT * FROM user WHERE email = ?', (email,)).fetchone()
 
         if user is None:
-            error = 'Incorrect username.'
+            error = 'Incorrect email.'
         elif not check_password_hash(user['password'], password):
             error = 'Incorrect password.'
 
