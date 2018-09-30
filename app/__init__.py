@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask, render_template
+from .linter import Linter
 
 
 def create_app(test_config=None):
