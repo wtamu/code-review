@@ -1,6 +1,6 @@
 html {
     font-family: sans-serif;
-    background: #eee;
+    background: #ffffff;
     padding: 1rem;
 }
 
@@ -11,13 +11,14 @@ body {
 }
 
 h1 {
-    font-family: serif;
-    color: #377ba8;
+    font-family: "American Typewriter";
+    color: #1a293b;
     margin: 1rem 0;
 }
 
 a {
-    color: #377ba8;
+    font-family: "American Typewriter";
+    color: #1a293b;
 }
 
 hr {
@@ -26,7 +27,8 @@ hr {
 }
 
 nav {
-    background: lightgray;
+    background: #ffffff;
+    border: 1px #1a293b;
     display: flex;
     align-items: center;
     padding: 0 0.5rem;
@@ -74,30 +76,6 @@ nav ul li a, nav ul li span, header .action {
     padding: 1em;
     background: #cae6f6;
     border: 1px solid #377ba8;
-}
-
-.post > header {
-    display: flex;
-    align-items: flex-end;
-    font-size: 0.85em;
-}
-
-.post > header > div:first-of-type {
-    flex: auto;
-}
-
-.post > header h1 {
-    font-size: 1.5em;
-    margin-bottom: 0;
-}
-
-.post .about {
-    color: slategray;
-    font-style: italic;
-}
-
-.post .body {
-    white-space: pre-line;
 }
 
 .content:last-child {
