@@ -1,7 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Title</h1>
-    <h5>Subtitle</h5>
-    <p>Description</p>
+
+    <div id="editor">def hello(name):
+    print('Hello, ' + name + '!')
+
+hello('Will') # Hello, Will!
+
+arr = [1, 2, 3, 4, 5]
+for i in arr:
+    print(i)</div>
+
+    <script src="{{ url_for('static', filename='src/ace.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='src/ext-language_tools.js') }}" type="text/javascript"
+            charset="utf-8"></script>
+    <script>
+        ace.require("ace/ext/language_tools");
+
+        let editor = ace.edit("editor");
+        editor.setTheme("ace/theme/twilight");
+        editor.session.setMode("ace/mode/python");
+
+        {# Im not sure if this works #}
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: false
+        });
+    </script>
+
 {% endblock %}

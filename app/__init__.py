@@ -1,6 +1,7 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
+from flask.json import loads
 from .linter import Linter
 
 
@@ -27,6 +28,9 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
+        # errors = Linter('example.py').run()
+        # output = loads(errors)
+        # return jsonify(output)
         return render_template('index.html')
 
     from . import db
