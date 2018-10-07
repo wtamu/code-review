@@ -1,0 +1,37 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "node root",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -p --progress --config webpack.config.js",
+    "dev-build": "webpack --progress -d --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --progress -d --config webpack.config.js --watch"
+  },
+  "keywords": [
+    "template",
+    "python",
+    "react",
+    "npm",
+    "webpack"
+  ],
+  "author": "William Tamura",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  },
+  "devDependencies": {
+    "babel-install": "^2.1.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "ace-builds": "^1.4.1",
+    "react-ace": "^6.2.0"
+  }
+}

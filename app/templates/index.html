@@ -11,22 +11,27 @@ arr = [1, 2, 3, 4, 5]
 for i in arr:
     print(i)</div>
 
-    <script src="{{ url_for('static', filename='src/ace.js') }}" type="text/javascript" charset="utf-8"></script>
-    <script src="{{ url_for('static', filename='src/ext-language_tools.js') }}" type="text/javascript"
-            charset="utf-8"></script>
-    <script>
-        ace.require("ace/ext/language_tools");
+    <script src="{{ url_for('static', filename='node_modules/ace-builds/src-min-noconflict/ace.js') }}"
+            type="text/javascript" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='node_modules/ace-builds/src-min-noconflict/ext-language_tools.js') }}"
+            type="text/javascript" charset="utf-8"></script>
 
+    <script>
         let editor = ace.edit("editor");
+
         editor.setTheme("ace/theme/twilight");
         editor.session.setMode("ace/mode/python");
-
-        {# Im not sure if this works #}
         editor.setOptions({
             enableBasicAutocompletion: true,
             enableSnippets: true,
-            enableLiveAutocompletion: false
+            enableLiveAutocompletion: true,
         });
     </script>
+    <script>
+        window.onload = function () {
+            window.aceEditor = ace.edit("editor");
+        }
+    </script>
+
 
 {% endblock %}

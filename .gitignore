@@ -14,4 +14,4 @@ build/
 *.egg-info/
 
 .idea
-ace-builds/
+node_modules/
